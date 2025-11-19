@@ -1,0 +1,19 @@
+# Pedir los tres lados del triángulo
+a = float(input("Lado a: "))
+b = float(input("Lado b: "))
+c = float(input("Lado c: "))
+
+# Pedir base y altura para el área
+base = float(input("Base: "))
+altura = float(input("Altura: "))
+
+# Calcular perímetro
+perimetro = a + b + c
+
+# Calcular área
+area = (base * altura) / 2
+
+# Mostrar resultados
+print("\n--- RESULTADOS ---")
+print(f"Área del triángulo: {area}")
+print(f"Perímetro del triángulo: {perimetro}")
