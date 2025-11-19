@@ -1,53 +1,86 @@
+# ====== FUNCIONES DE LOS EJERCICIOS ======
+
 def datos_usuario():
-    n = input("Nombre: "); e = input("Edad: "); c = input("Carrera: ")
-    print(f"Hola {n}, estudias {c} y tienes {e} años.")
+    nombre = input("Ingresa tu nombre: ")
+    edad = input("Ingresa tu edad: ")
+    print(f"Usuario: {nombre}, Edad: {edad}")
 
 def evaluar_numero():
     try:
-        x = float(input("Número: "))
-        print("Positivo" if x>0 else "Negativo" if x<0 else "Cero")
-        print("Par" if x%2==0 else "Impar")
-    except: print("Inválido")
+        n = float(input("Ingresa un número: "))
+        if n > 0:
+            print("Es positivo")
+        elif n < 0:
+            print("Es negativo")
+        else:
+            print("Es cero")
+    except:
+        print("Entrada inválida.")
 
 def suma_promedio():
     try:
-        n = int(input("¿Cuántos?: "))
-        nums = [float(input("> ")) for _ in range(n)]
-        print("Cantidad:", n, "Suma:", sum(nums), "Promedio:", sum(nums)/n)
-    except: print("Inválido")
+        nums = input("Ingresa números separados por espacio: ").split()
+        nums = [float(x) for x in nums]
+        print(f"Suma: {sum(nums)}, Promedio: {sum(nums)/len(nums)}")
+    except:
+        print("Entrada inválida.")
 
 def lista_estudiantes():
-    l = [input(f"Nombre {i+1}: ") for i in range(5)]
-    print("Original:", l, "\nPrimero:", l[0], "\nÚltimo:", l[-1], "\nOrdenada:", sorted(l))
+    alumnos = []
+    print("Escribe nombres (ENTER para terminar):")
+    while True:
+        n = input("> ")
+        if n == "":
+            break
+        alumnos.append(n)
+    print("Lista final:", alumnos)
 
 def area_rectangulo():
     try:
-        b = float(input("Base: ")); a = float(input("Altura: "))
-        print("Área:", b*a)
-    except: print("Inválido")
+        base = float(input("Base: "))
+        altura = float(input("Altura: "))
+        print("Área =", base * altura)
+    except:
+        print("Entrada inválida.")
 
 def info_alumno():
-    n=input("Nombre: "); m=input("Matrícula: "); c=input("Carrera: ")
-    try:
-        p=float(input("Promedio: "))
-        print(f"Alumno: {n} ({m})\nCarrera: {c}\nPromedio: {p}\nEstado:", "Aprobado" if p>=7 else "Reprobado")
-    except: print("Inválido")
+    nombre = input("Nombre del alumno: ")
+    carrera = input("Carrera: ")
+    semestre = input("Semestre: ")
+    print(f"Alumno: {nombre}, {carrera}, Semestre {semestre}")
 
-def mostrar_todo():
-    print("Mostrar todo (personalizable).")
+def mostrar_todos():
+    print("Aquí irían todos los datos almacenados (si los guardas en variables globales).")
+    print("Demostración: función llamada correctamente.")
+
+# ====== MENÚ PRINCIPAL ======
 
 def menu():
     while True:
-        print("\n=== MENÚ ===\n1.Datos\n2.Evaluar\n3.Suma\n4.Lista\n5.Rectángulo\n6.Alumno\n7.Todo\n0.Salir")
-        op = input("> ")
-        if   op=="1": datos_usuario()
-        elif op=="2": evaluar_numero()
-        elif op=="3": suma_promedio()
-        elif op=="4": lista_estudiantes()
-        elif op=="5": area_rectangulo()
-        elif op=="6": info_alumno()
-        elif op=="7": mostrar_todo()
-        elif op=="0": break
-        else: print("Inválido")
+        print("\n===== MENÚ PRINCIPAL =====")
+        print("1. Datos del usuario")
+        print("2. Evaluar número")
+        print("3. Suma y promedio")
+        print("4. Lista de estudiantes")
+        print("5. Área de rectángulo")
+        print("6. Información del alumno")
+        print("7. Mostrar todos los datos")
+        print("0. Salir")
 
+        opcion = input("Elige una opción: ")
+
+        if opcion == "1": datos_usuario()
+        elif opcion == "2": evaluar_numero()
+        elif opcion == "3": suma_promedio()
+        elif opcion == "4": lista_estudiantes()
+        elif opcion == "5": area_rectangulo()
+        elif opcion == "6": info_alumno()
+        elif opcion == "7": mostrar_todos()
+        elif opcion == "0":
+            print("Programa finalizado.")
+            break
+        else:
+            print("Opción inválida. Intenta de nuevo.")
+
+# Ejecutar menú
 menu()
