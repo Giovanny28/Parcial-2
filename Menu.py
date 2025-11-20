@@ -1,5 +1,3 @@
-# ===== FUNCIONES DE LOS EJERCICIOS =====
-
 def datos_usuario():
     nombre = input("Nombre: ")
     edad = input("Edad: ")
@@ -56,8 +54,6 @@ def info_alumno():
 def mostrar_todo():
     print("Aquí puedes mostrar un resumen general o datos guardados.")
     print("Por ahora solo es un ejemplo.")
-
-# ===== MENÚ PRINCIPAL =====
 
 def menu():
     while True:
